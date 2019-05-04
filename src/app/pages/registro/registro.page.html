@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-title slot="secondary">{{titulo | placeholder:'Crear nuevo Post'}}</ion-title>
+        <ion-buttons slot="end">
+            <ion-button size="small" fill="clear" color="danger" (click)="cerrarModal()">Cancelar</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-item>
+        <ion-label position="floating" [(ngModel)]="titulo">Producto</ion-label>
+        <ion-input></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>Fecha de compra:</ion-label>
+        <ion-datetime placeholder="DD-MM-YYYY" min="2019" max="2030" [value]="fechaCompra" [(ngModel)]="fechaCompra"></ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-label>Fecha de caducidad:</ion-label>
+        <ion-datetime placeholder="DD-MM-YYYY" min="2019" max="2030" [value]="fechaCaducidad" [(ngModel)]="fechaCaducidad"></ion-datetime>
+    </ion-item>
+
+    <br>
+
+    <ion-img *ngIf="imagen == null" src="https://via.placeholder.com/350"></ion-img>
+    <ion-img *ngIf="imagen != null" [src]="imagenPreview"></ion-img>
+
+    <br>
+
+    <ion-row>
+        <ion-col size="6">
+            <ion-button expand="block" (click)="abrirCamara()">
+                <ion-icon name="camera" slot="start"></ion-icon>
+                <ion-label>Camara</ion-label>
+            </ion-button>
+        </ion-col>
+        <ion-col size="6">
+            <ion-button expand="block" (click)="seleccionarImagen()">
+                <ion-icon name="images" slot="start"></ion-icon>
+                <ion-label>Imagenes</ion-label>
+            </ion-button>
+        </ion-col>
+    </ion-row>
+
+    <ion-button expand="block" color="danger" (click)="crearPost()" [disabled]="titulo.length <= 1 || imagenPreview != null">REGISTRAR PRODUCTO</ion-button>
+
+</ion-content>

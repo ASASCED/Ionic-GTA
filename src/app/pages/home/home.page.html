@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-title text-center>Productos</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+
+    <ion-grid>
+        <ion-row>
+            <ion-card color="light">
+                <ion-img src="../../../assets/img/1.jpg"></ion-img>
+                <ion-card-header>
+                    <ion-item lines="full">
+                        <ion-card-title slot="start">Coca-Cola</ion-card-title>
+                        <ion-badge slot="end" color="danger">Caduca en: 4 Días</ion-badge>
+                    </ion-item>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <p><strong>Fecha de compra:</strong> 11-02-19</p>
+                    <p><strong>Fecha de caducidad:</strong> 30-03-19</p>
+                    <ion-button color="primary" size="small" expand="block">Abrir</ion-button>
+                </ion-card-content>
+            </ion-card>
+        </ion-row>
+    </ion-grid>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button color="danger" (click)="abrirModal()">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+</ion-content>
